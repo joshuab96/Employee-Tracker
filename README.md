@@ -5,7 +5,7 @@ Assign and manage data with a this simple Content Management System. Manage comp
 ### **Features**
 
 * Add new employees
-* Assigne employees to roles
+* Assign employees to roles
 * Assign employee to departments
 * Delete and manage employees
 
