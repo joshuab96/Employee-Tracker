@@ -3,3 +3,5 @@
 .AcceptanceCriteria
 
 .DS_store
+
+.node_modules

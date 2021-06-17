@@ -1,0 +1,24 @@
+{
+  "name": "Employee-Tracker",
+  "version": "1.0.0",
+  "description": "Assign and manage data with a this simple Content Management System. Manage company employees by using the system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuab96/Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuab96/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/joshuab96/Employee-Tracker#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1",
+    "nodemon": "^2.0.7"
+  }
+}
