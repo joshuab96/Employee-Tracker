@@ -1,7 +1,5 @@
 .env
 
-.AcceptanceCriteria.md
-
-.DS_store
+AcceptanceCriteria.md
 
 node_modules
