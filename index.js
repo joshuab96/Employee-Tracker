@@ -238,3 +238,18 @@ function viewEmployees() {
 
 
 }
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+function viewDepartments() {
+
+    connection.query('SELECT * FROM DEPARTMENT',
+
+        (err, res) => {
+            if (err) throw err;
+            console.log(res);
+            mainMenu();
+        }
+    )
+
+}
