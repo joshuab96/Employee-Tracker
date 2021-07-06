@@ -1,28 +1,28 @@
 -- Departments
 INSERT INTO DEPARTMENT  (name)
-VALUES (payroll); 
+VALUES ("payroll"); 
 
 INSERT INTO DEPARTMENT  (name)
-VALUES (customer_service); 
+VALUES ("customer_service"); 
 
 INSERT INTO DEPARTMENT  (name)
-VALUES (human_resources); 
+VALUES ("human_resources"); 
 
 INSERT INTO DEPARTMENT  (Name)
-VALUES (accounts); 
+VALUES ("accounts"); 
 
 -- Roles
 INSERT INTO ROLE (title, salary, department_id)
-VALUES (receptionist, 60000, 2 ); -- customer_service
+VALUES ('receptionist', 60000, 2 ); -- customer_service
 
 INSERT INTO ROLE (title, salary, department_id)
-VALUES (clerk, 70000, 1 ); -- accounts
+VALUES ('clerk', 70000, 1 ); -- accounts
 
 INSERT INTO ROLE (title, salary, department_id)
-VALUES (hr_manager, 80000, 3 ); -- human_resources
+VALUES ('hr_manager', 80000, 3 ); -- human_resources
 
 INSERT INTO ROLE (title, salary, department_id)
-VALUES (payroll_officer, 75000, 4 ); -- payroll
+VALUES ('payroll_officer', 75000, 4 ); -- payroll
 
 
 

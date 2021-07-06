@@ -19,6 +19,6 @@
   "homepage": "https://github.com/joshuab96/Employee-Tracker#readme",
   "dependencies": {
     "inquirer": "^8.1.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.9"
   }
 }
