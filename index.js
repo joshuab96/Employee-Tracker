@@ -33,7 +33,7 @@ function mainMenu() {
                     new inquirer.Separator(),
                     "View Employees",
                     "View Departments",
-                    "View roles",
+                    "View Roles",
                     new inquirer.Separator(),
                     "View All",
                     new inquirer.Separator(),
@@ -244,6 +244,21 @@ function viewEmployees() {
 function viewDepartments() {
 
     connection.query('SELECT * FROM DEPARTMENT',
+
+        (err, res) => {
+            if (err) throw err;
+            console.log(res);
+            mainMenu();
+        }
+    )
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+function viewRoles() {
+
+    connection.query('SELECT * FROM ROLE',
 
         (err, res) => {
             if (err) throw err;
