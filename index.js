@@ -64,7 +64,7 @@ function mainMenu() {
                 case "Add Role":
                     addRole();
                     break;
-                case "view Employees":
+                case "View Employees":
                     viewEmployees();
                     break;
                 case "View Departments":
@@ -226,5 +226,15 @@ function addRole() {
 //----------------------------------------------------------------------------------------------------------------------------
 
 function viewEmployees() {
+
+    connection.query('SELECT * FROM EMPLOYEE',
+
+        (err, res) => {
+            if (err) throw err;
+            console.log(res);
+            mainMenu();
+        }
+    )
+
 
 }
