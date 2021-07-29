@@ -35,7 +35,7 @@ function mainMenu() {
                     "View Departments",
                     "View Roles",
                     new inquirer.Separator(),
-                    "View All",
+                    "Update Employee Role",
                     new inquirer.Separator(),
                 ],
                 default: "View All",
@@ -72,6 +72,9 @@ function mainMenu() {
                     break;
                 case "View Roles":
                     viewRoles();
+                    break;
+                case "Update Employee Role":
+                    updateEmployeeRole();
                     break;
 
             }
@@ -267,4 +270,87 @@ function viewRoles() {
         }
     )
 
+}
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+function updateEmployeeRole() {
+
+    connection.query('SELECT * FROM ROLE',
+
+        (err, res) => {
+            if (err) throw err;
+            // console.log(res);
+
+            const choices = res.map(x => ({ name: x.title, value: x.id }))
+
+            console.log(choices)
+
+            connection.query('SELECT * FROM EMPLOYEE',
+
+                (err, res2) => {
+                    if (err) throw err;
+
+
+                    // console.log(res2, "res2");
+
+                    const employees = res2.map(x => ({ name: x.first_name + " " + x.last_name, value: x.id }))
+
+                    console.log(employees);
+
+                    inquirer
+                        .prompt([
+                            {
+                                type: "list",
+                                name: "update_employee_role",
+                                message: "Please select a role to update",
+                                choices: choices
+
+                            },
+
+                            {
+                                type: "list",
+                                name: "select_employee",
+                                message: "Please select an employee",
+                                choices: employees
+
+
+                            }
+
+
+
+
+                        ])
+
+                        .then((response) => {
+                            console.log(response);
+                            connection.query(
+                                'UPDATE EMPLOYEE SET ? WHERE ?', [
+
+                                {
+                                    role_id: response.update_employee_role
+                                },
+                                {
+                                    id: response.select_employee
+
+                                },
+                            ]
+
+
+
+                                ,
+                                (err, res) => {
+                                    if (err) throw err;
+                                    console.log(`\nEmployee Role Updated!\n`);
+                                    mainMenu();
+                                }
+
+                            );
+
+
+
+                        }
+                        )
+                })
+        })
 }
