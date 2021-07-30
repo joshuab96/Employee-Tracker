@@ -1,5 +1,5 @@
 # **Employee Tracker** :busts_in_silhouette:
-Assign and manage data with a this simple Content Management System. Manage company employees by using the system.
+Assign and manage data with a this simple Content Management System. Manage company employees, roles and departments by using this system.
 
 
 ### **Features**
@@ -7,7 +7,7 @@ Assign and manage data with a this simple Content Management System. Manage comp
 * Add new employees
 * Assign employees to roles
 * Assign employee to departments
-* Delete and manage employees
+* View employees, roles and departments
 
 
 ### **Technologies**
@@ -20,6 +20,7 @@ Assign and manage data with a this simple Content Management System. Manage comp
 ### **Links**
 
 [GitHub Repository](https://github.com/joshuab96/Employee-Tracker) 
+
 
 
 

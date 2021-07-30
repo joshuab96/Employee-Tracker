@@ -29,7 +29,7 @@ function mainMenu() {
                 choices: [
                     "Add Employee",
                     "Add Department",
-                    "Add role",
+                    "Add Role",
                     new inquirer.Separator(),
                     "View Employees",
                     "View Departments",
@@ -78,24 +78,6 @@ function mainMenu() {
                     break;
 
             }
-
-            // if (response.options === "Add Employee") {
-            //     addEmployee();
-
-            // } else if (response.options === "Add Department") {
-            //     addDepartment();
-
-            // } else if (response.options === " Add Role") {
-            //     addRole();
-
-            // } else if (response.options === "View Employees") {
-            //     viewEmployees();
-
-            // } else if (response.options === "View Departments") {
-            //     viewDepartments()
-
-
-            // };
         })
 }
 
@@ -119,7 +101,8 @@ function addEmployee() {
                 type: 'input',
                 message: 'Please add a role ID',
                 name: 'role_id'
-            }, {
+            },
+            {
                 type: 'input',
                 message: 'Please add a manager ID',
                 name: 'manager_id'
@@ -140,13 +123,13 @@ function addEmployee() {
             },
                 (err, res) => {
                     if (err) throw err;
-                    console.log(`\nEmployee Added!\n`);
+                    console.log(response.first_name, response.last_name, "added");
                     mainMenu();
                 }
 
             );
 
-            console.log(response);
+
         });
 }
 
@@ -165,7 +148,7 @@ function addDepartment() {
         ])
 
         .then((response) => {
-            const query = connection.query(
+            connection.query(
                 'INSERT INTO DEPARTMENT SET ?', {
 
                 name: response.department_name,
@@ -173,7 +156,7 @@ function addDepartment() {
             },
                 (err, res) => {
                     if (err) throw err;
-                    console.log(`\nDepartment Added!\n`);
+                    console.log(response.department_name, "department added");
                     mainMenu();
                 }
 
@@ -192,37 +175,48 @@ function addRole() {
             {
                 type: 'input',
                 message: 'Please input a role name',
-                name: 'department_name',
+                name: 'role_name',
             },
             {
                 type: 'input',
-                message: 'Please input a department name ',
-                name: 'department_name',
+                message: 'Please input a salary using only numbers and excluding commas ',
+                name: 'salary',
             },
             {
                 type: 'input',
-                message: 'Please input a department name ',
-                name: 'department_name',
+                message: 'Please input the department id',
+                name: 'department_id',
             },
+
 
         ])
 
         .then((response) => {
-            const query = connection.query(
-                'INSERT INTO DEPARTMENT SET ?', {
+            connection.query(
+                'INSERT INTO ROLE SET ?', [
+                {
+                    title: response.role_name,
+                },
 
-                name: response.department_name,
+                {
+                    salary: response.salary,
+                },
 
-            },
+                {
+                    department_id: response.department_id,
+                },
+            ],
+
+
                 (err, res) => {
                     if (err) throw err;
-                    console.log(`\nDepartment Added!\n`);
+                    console.log(response.role_name, "added");
                     mainMenu();
                 }
 
             );
 
-            console.log(response);
+
         });
 }
 
